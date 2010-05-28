@@ -185,8 +185,9 @@ static NSString* const kGGTwitterLoadingBackgroundImage = @"twitter_load.png";
 	[self locateAuthPinInWebView: nil];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+{
+	return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? YES : interfaceOrientation == UIDeviceOrientationPortrait);
 }
 
 - (void) didRotateFromInterfaceOrientation: (UIInterfaceOrientation) fromInterfaceOrientation {
