@@ -20,10 +20,10 @@ static char encodingTable[64] = {
 
 @implementation NSData (Base64)
 
-+ (NSData *) dataWithBase64EncodedString:(NSString *) string {
-	NSData *result = [[NSData alloc] initWithBase64EncodedString:string];
-	return [result autorelease];
-}
+//+ (NSData *) dataWithBase64EncodedString:(NSString *) string {
+//	NSData *result = [[NSData alloc] initWithBase64EncodedString:string];
+//	return [result autorelease];
+//}
 
 - (id) initWithBase64EncodedString:(NSString *) string {
 	NSMutableData *mutableData = nil;
