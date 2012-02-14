@@ -9,14 +9,14 @@
 //  See ReadMe for further attributions, copyrights and license info.
 //
 
-#import "MGTwitterHTTPURLConnection.h"
+#import "SA_OAuthTwitterEngine.h"
 
+#import "MGTwitterHTTPURLConnection.h"
 
 #import "OAConsumer.h"
 #import "OAMutableURLRequest.h"
 #import "OADataFetcher.h"
 
-#import "SA_OAuthTwitterEngine.h"
 
 @interface SA_OAuthTwitterEngine (private)
 
