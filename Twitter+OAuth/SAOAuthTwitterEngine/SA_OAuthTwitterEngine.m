@@ -41,6 +41,7 @@
 
 @synthesize pin = _pin, requestTokenURL = _requestTokenURL, accessTokenURL = _accessTokenURL, authorizeURL = _authorizeURL;
 @synthesize consumerSecret = _consumerSecret, consumerKey = _consumerKey;
+@synthesize accessToken = _accessToken;
 
 - (void) dealloc {
 	self.pin = nil;
