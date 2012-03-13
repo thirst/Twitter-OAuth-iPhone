@@ -256,9 +256,11 @@
                          requestType:(MGTwitterRequestType)requestType 
                         responseType:(MGTwitterResponseType)responseType
 {
+    BOOL isPOST = (method && [method isEqualToString:@"POST"]);
+    
     NSString *fullPath = path;
 
-    if (params)
+    if (params && !isPOST)
         fullPath = [self _queryStringWithBase:fullPath parameters:params prefixed:YES];
 
     NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@", 
@@ -295,7 +297,6 @@
     [theRequest setValue:_clientURL     forHTTPHeaderField:@"X-Twitter-Client-URL"];
     
     // Set the request body if this is a POST request.
-    BOOL isPOST = (method && [method isEqualToString:@"POST"]);
     if (isPOST) {
         // Set request body, if specified (hopefully so), with 'source' parameter if appropriate.
         NSString *finalBody = @"";
