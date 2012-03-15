@@ -774,7 +774,7 @@
     if (count > 0) {
         [params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
     }
-    
+        
     return [self _sendRequestWithMethod:nil path:path queryParameters:params body:nil 
                             requestType:MGTwitterFollowedTimelineRequest 
                            responseType:MGTwitterStatuses];
@@ -786,7 +786,7 @@
 
 - (NSString *)getUserTimelineFor:(NSString *)username sinceID:(unsigned long)sinceID startingAtPage:(int)page count:(int)count
 {
-    return [self getUserTimelineFor:username sinceID:sinceID withMaximumID:0 startingAtPage:0 count:count];
+    return [self getUserTimelineFor:username sinceID:sinceID withMaximumID:0 startingAtPage:page count:count];
 }
 
 - (NSString *)getUserTimelineFor:(NSString *)username sinceID:(unsigned long)sinceID withMaximumID:(unsigned long)maxID startingAtPage:(int)page count:(int)count
@@ -808,9 +808,10 @@
         [params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
     }
     if (username) {
-        path = [NSString stringWithFormat:@"statuses/user_timeline/%@.%@", username, API_FORMAT];
-		requestType = MGTwitterUserTimelineForUserRequest;
+        [params setObject:username forKey:@"screen_name"];
     }
+    
+    [params setObject:@"true" forKey:@"include_rts"];
     
     return [self _sendRequestWithMethod:nil path:path queryParameters:params body:nil 
                             requestType:requestType 
