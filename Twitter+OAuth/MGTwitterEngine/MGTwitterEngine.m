@@ -792,7 +792,7 @@
 - (NSString *)getUserTimelineFor:(NSString *)username sinceID:(unsigned long)sinceID withMaximumID:(unsigned long)maxID startingAtPage:(int)page count:(int)count
 {
 	NSString *path = [NSString stringWithFormat:@"statuses/user_timeline.%@", API_FORMAT];
-    MGTwitterRequestType requestType = MGTwitterUserTimelineRequest;
+    MGTwitterRequestType requestType = MGTwitterUserTimelineForUserRequest;
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
     if (sinceID > 0) {
