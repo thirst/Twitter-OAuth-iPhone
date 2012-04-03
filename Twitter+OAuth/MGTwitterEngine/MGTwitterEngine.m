@@ -13,7 +13,7 @@
 
 #define API_FORMAT @"json"
 
-#define TWITTER_DOMAIN          @"twitter.com"
+#define TWITTER_DOMAIN          @"api.twitter.com/1"
 #define TWITTER_SEARCH_DOMAIN	@"search.twitter.com"
 #define HTTP_POST_METHOD        @"POST"
 #define MAX_MESSAGE_LENGTH      140 // Twitter recommends tweets of max 140 chars
@@ -811,6 +811,7 @@
         [params setObject:username forKey:@"screen_name"];
     }
     
+    [params setObject:@"true" forKey:@"include_entities"];
     [params setObject:@"true" forKey:@"include_rts"];
     
     return [self _sendRequestWithMethod:nil path:path queryParameters:params body:nil 
