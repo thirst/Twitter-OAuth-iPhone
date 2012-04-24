@@ -32,9 +32,7 @@
 
 	NSString	*_pin;
 
-    OAToken		*_accessToken; 
-    
-@private
+    OAToken		*_accessToken;
 	OAConsumer	*_consumer;
 	OAToken		*_requestToken;
 }
