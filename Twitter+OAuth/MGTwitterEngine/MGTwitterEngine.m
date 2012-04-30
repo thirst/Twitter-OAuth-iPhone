@@ -1407,6 +1407,9 @@
     if (geocode) {
         [params setObject:geocode forKey:@"geocode"];
     }
+    
+        // TODO deeje 2012-04-29, we'll need to think of a way to generalize this when we globalize and sell in app stores around the world…
+    [params setObject:@"en" forKey:@"lang"];
 	
 	/*
 	NOTE: These parameters are also available but not implemented yet:
